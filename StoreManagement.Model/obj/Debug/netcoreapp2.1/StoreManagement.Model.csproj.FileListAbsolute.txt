@@ -1,0 +1,9 @@
+C:\Projects\StoreManagingApp\StoreManagement.Model\bin\Debug\netcoreapp2.1\StoreManagement.Model.deps.json
+C:\Projects\StoreManagingApp\StoreManagement.Model\bin\Debug\netcoreapp2.1\StoreManagement.Model.dll
+C:\Projects\StoreManagingApp\StoreManagement.Model\bin\Debug\netcoreapp2.1\StoreManagement.Model.pdb
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.csprojAssemblyReference.cache
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.csproj.CoreCompileInputs.cache
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.AssemblyInfoInputs.cache
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.AssemblyInfo.cs
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.dll
+C:\Projects\StoreManagingApp\StoreManagement.Model\obj\Debug\netcoreapp2.1\StoreManagement.Model.pdb

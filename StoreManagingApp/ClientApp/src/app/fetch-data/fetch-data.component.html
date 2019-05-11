@@ -1,0 +1,135 @@
+<h2 *ngIf="!storeCharacters; else showData" style="padding-top: 70px; text-align: center;"><em>Loading...</em></h2>
+
+<ng-template #showData>
+  <div class="card upper-table">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Aggregation Values</h3>
+    <div class="card-body">
+      <div id="tableAgg" class="table-editable">
+        <table #tableAgg class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center">Min Total Stock</th>
+            <th class="text-center">Max Total Stock</th>
+            <th class="text-center">Min Stock Accuracy</th>
+            <th class="text-center">Max Stock Accuracy</th>
+            <th class="text-center">Min On-Floor Availability</th>
+            <th class="text-center">Max On-Floor Availability</th>
+            <th class="text-center">Min Stock Mean Age (Days)</th>
+            <th class="text-center">Max Stock Mean Age (Days)</th>
+          </tr>
+          <tr>
+            <td>
+              <span>{{minTotalStock}}</span>
+            </td>
+            <td>
+              <span>{{maxTotalStock}}</span>
+            </td>
+            <td>
+              <span>{{minStockAccuracy}}</span>
+            </td>
+            <td>
+              <span>{{maxStockAccuracy}}</span>
+            </td>
+            <td>
+              <span>{{minOnFloorAvailability}}</span>
+            </td>
+            <td>
+              <span>{{maxOnFloorAvailability}}</span>
+            </td>
+            <td>
+              <span>{{minStockMeanAgeDays}}</span>
+            </td>
+            <td>
+              <span>{{maxStockMeanAgeDays}}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card second-table">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Store List</h3>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <div class="table-add float-right mb-3 mr-2 pad add-button-container">
+          <button type="button" mdbBtn color="success" class="waves-light add-button" mdbWavesEffect (click)="add()">Add Store</button>
+        </div>
+        <table #table class="table table-bordered table-responsive-md table-striped text-center">
+          <tr>
+            <th class="text-center">Store</th>
+            <th class="text-center">Country Code</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Store Mgr. Name</th>
+            <th class="text-center">Store Mgr. LastName</th>
+            <th class="text-center">Store Mgr. Email</th>
+            <th class="text-center">Category</th>
+            <th class="text-center">Stock BackStore</th>
+            <th class="text-center">Stock FrontStore</th>
+            <th class="text-center">Stock Shopping Window</th>
+            <th class="text-center">Total Stock</th>
+            <th class="text-center">Stock Accuracy</th>
+            <th class="text-center">On-Floor Availability</th>
+            <th class="text-center">Stock Mean Age (Days)</th>
+            <th class="text-center">Remove</th>
+          </tr>
+          <tr *ngFor="let store of storeCharacters">
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'name', $event)">{{store.name}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'countryCode', $event)">{{store.countryCode}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'email', $event)">{{store.email}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'storeManagerName', $event)">{{store.storeManagerName}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'storeManagerLastName', $event)">{{store.storeManagerLastName}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (blur)="updateCell(store.id, 'storeManagerEmail', $event)">{{store.storeManagerEmail}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'category', $event)" (blur)="updateCell(store.id, 'category', $event)">{{store.category}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'stockBackStore', $event)" (blur)="updateCell(store.id, 'stockBackStore', $event)">{{store.stockBackStore}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'stockFrontStore', $event)" (blur)="updateCell(store.id, 'stockFrontStore', $event)">{{store.stockFrontStore}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'stockShoppingWindow', $event)" (blur)="updateCell(store.id, 'stockShoppingWindow', $event)">{{store.stockShoppingWindow}}</span>
+            </td>
+            <td>
+              <span>{{store.totalStock}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'stockAccuracy', $event)" (blur)="updateCell(store.id, 'stockAccuracy', $event)">{{store.stockAccuracy}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'onFloorAvailability', $event)" (blur)="updateCell(store.id, 'onFloorAvailability', $event)">{{store.onFloorAvailability}}</span>
+            </td>
+            <td>
+              <span contenteditable="true" (keyup)="changeValue(store.id, 'stockMeanAgeDays', $event)" (blur)="updateCell(store.id, 'stockMeanAgeDays', $event)">{{store.stockMeanAgeDays}}</span>
+            </td>
+            <td>
+            <span *ngIf="store.id != 0" class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0 in-table-button" (click)="remove(store.id)">Remove</button>
+            </span>
+              <span *ngIf="store.id == 0" class="table-add">
+              <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0 in-table-button" (click)="save(store.id)">Save</button>
+            </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+
