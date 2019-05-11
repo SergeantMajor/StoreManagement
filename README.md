@@ -15,5 +15,14 @@ To start app:
 5. Build app
 6. Press F5
 
-Server API - ASP.NET Core
-UI part - Angular 7
+Server API - ASP.NET Core;
+
+UI part - Angular 7;
+
+1. To see the list of stores - just start app.
+2. To add new store - press Add Store, fill all mandatory fields and press Save.
+3. To modify store - start typing inside table cell if store list table. Changes are saving automatically when cell lost focus.
+4. To remove store - press Remove.
+5. Numeric fields must be typed only with numeric values.
+6. Email fields and Country Code must be in specific format.
+
